@@ -43,7 +43,6 @@ cmd
           return { tag, value, operator }
         })
       })
-      console.log(params)
     }
     const events = await zbxEventGet(
       {
