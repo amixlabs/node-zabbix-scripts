@@ -1,6 +1,6 @@
 {
   "name": "zabbix-event-counter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Zabbix Event Counter",
   "bin": "./bin/zabbix-event-counter.js",
   "author": "edison@amix.com.br",
