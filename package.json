@@ -2,7 +2,7 @@
   "name": "zabbix-event-counter",
   "version": "1.0.1",
   "description": "Zabbix Event Counter",
-  "bin": "./bin/zabbix-event-counter.js",
+  "bin": "./src/cli.mjs",
   "author": "edison@amix.com.br",
   "license": "MIT",
   "dependencies": {
