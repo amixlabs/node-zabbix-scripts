@@ -19,7 +19,8 @@ export async function getEvents({
     const params = {
       time_from,
       time_till,
-      selectTags: 'extend'
+      selectTags: 'extend',
+      value: 1
     }
     if (name) {
       Object.assign(params, {
