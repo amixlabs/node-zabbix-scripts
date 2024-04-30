@@ -1,8 +1,11 @@
 {
-  "name": "zabbix-event-counter",
+  "name": "node-zabbix-scripts",
   "version": "1.1.1",
   "description": "Zabbix Event Counter",
-  "bin": "./src/cli.mjs",
+  "bin": {
+    "zabbix-event-counter": "./src/cli/zabbix-event-counter.mjs",
+    "zabbix-problem-counter": "./src/cli/zabbix-problem-counter.mjs"
+  },
   "author": "edison@amix.com.br",
   "license": "MIT",
   "dependencies": {

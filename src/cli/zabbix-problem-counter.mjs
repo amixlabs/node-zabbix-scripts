@@ -1,8 +1,8 @@
 #!/usr/bin/env -S node --no-warnings
-import pkg from '../package.json' assert { type: 'json' }
+import pkg from '../../package.json' assert { type: 'json' }
 
 import { program as cmd } from 'commander'
-import { getEvents } from './events.mjs'
+import { getProblems } from '../problems.mjs'
 
 cmd.version(pkg.version)
 
@@ -11,8 +11,8 @@ cmd
   .requiredOption('--user <user>', 'zabbix User')
   .requiredOption('--pass <pass>', 'zabbix Password')
   .option('--timeout <timeout>', 'timeout (ms)', 30000)
-  .option('--from <from>', 'time from', '1 hour ago')
-  .option('--to <to>', 'time to', 'now')
+  .option('--from <from>', 'time from')
+  .option('--to <to>', 'time to')
   .option('--name <name>', 'search wildcard event name')
   .option(
     '--tags <tags...>',
@@ -28,11 +28,11 @@ cmd
   )
   .option('--json', 'output JSON')
   .action(async (options) => {
-    const events = await getEvents(options)
+    const problems = await getProblems(options)
     if (options.json) {
-      console.log(JSON.stringify({ events }, null, 2))
+      console.log(JSON.stringify({ problems }, null, 2))
     } else {
-      console.log(events.length)
+      console.log(problems.length)
     }
   })
 

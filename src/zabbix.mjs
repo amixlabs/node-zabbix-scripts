@@ -39,6 +39,15 @@ export class Zabbix {
       auth: this.#auth
     })
   }
+  async problemGet(params) {
+    return await this.#fetch({
+      jsonrpc: '2.0',
+      method: 'problem.get',
+      params,
+      id: 1,
+      auth: this.#auth
+    })
+  }
   async logout() {
     return await this.#fetch({
       jsonrpc: '2.0',
