@@ -9,6 +9,7 @@ export async function getProblems({
   from,
   to,
   name,
+  severities,
   tags
 }) {
   const zbx = new Zabbix({ url, timeout })
@@ -35,6 +36,9 @@ export async function getProblems({
         search: { name },
         searchWildcardsEnabled: 1
       })
+    }
+    if (severities) {
+      Object.assign(params, { severities })
     }
     if (tags) {
       Object.assign(params, {

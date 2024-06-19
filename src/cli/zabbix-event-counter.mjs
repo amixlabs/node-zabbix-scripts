@@ -15,6 +15,17 @@ cmd
   .option('--to <to>', 'time to', 'now')
   .option('--name <name>', 'search wildcard event name')
   .option(
+    '--severities <severities...>',
+    'return only problems with given event severities\n' +
+    'possible values:\n' +
+    '0 - not classified;\n' +
+    '1 - information;\n' +
+    '2 - warning;\n' +
+    '3 - average;\n' +
+    '4 - high;\n' +
+    '5 - disaster.\n'
+  )
+  .option(
     '--tags <tags...>',
     'exact match by tag and case-insensitive search by value and operator\n' +
       'format: tag[:value[:operator]]\n' +

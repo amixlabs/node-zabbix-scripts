@@ -9,6 +9,7 @@ export async function getEvents({
   from,
   to,
   name,
+  severities,
   tags
 }) {
   const zbx = new Zabbix({ url, timeout })
@@ -27,6 +28,9 @@ export async function getEvents({
         search: { name },
         searchWildcardsEnabled: 1
       })
+    }
+    if (severities) {
+      Object.assign(params, { severities })
     }
     if (tags) {
       Object.assign(params, {
