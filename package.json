@@ -1,6 +1,6 @@
 {
   "name": "@amixlabs/node-zabbix-scripts",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Zabbix Event Counter",
   "bin": {
     "zabbix-event-counter": "./src/cli/zabbix-event-counter.mjs",
