@@ -17,7 +17,8 @@ export async function getProblems({
   try {
     const params = {
       selectTags: 'extend',
-      value: 1
+      value: 1,
+      suppressed: false
     }
     if (from) {
       const time_from = unixDate(from)
@@ -49,7 +50,16 @@ export async function getProblems({
       })
     }
     const problems = await zbx.problemGet(params)
-    return problems
+    const triggerids = problems.map(d => d.objectid)
+    const triggers = await zbx.triggerGet({
+      triggerids,
+      output: ['triggerid'],
+      skipDependent: 1,
+      monitored: 1
+    })
+    const enabledTriggerids = new Set(triggers.map(d => d.triggerid))
+    const enabledProblems = problems.filter(d => enabledTriggerids.has(d.objectid))
+    return enabledProblems
   } finally {
     await zbx.logout()
   }
